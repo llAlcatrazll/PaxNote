@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:paxnote/landing_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -42,77 +43,111 @@ class _LoginPageState extends State<LoginPage> {
             ),
 
 // INPUT TEXT FIELD
-            Container(
-              margin: const EdgeInsets.fromLTRB(10, 45, 10, 0),
-              height: 320,
-              width: 400,
-              decoration: BoxDecoration(
-                color: const Color.fromRGBO(55, 51, 88, 1.0),
-                borderRadius: const BorderRadius.all(Radius.circular(37)),
-                border:
-                    Border.all(color: const Color.fromRGBO(48, 45, 81, 1.0)),
-                boxShadow: [
-                  BoxShadow(
-                    color:
-                        const Color.fromARGB(255, 31, 31, 31).withOpacity(0.5),
-                    spreadRadius: 1,
-                    blurRadius: 2,
-                    offset: const Offset(4, 5), // changes position of shadow
+            LayoutBuilder(
+              builder: (context, constraints) {
+                double containerWidth =
+                    constraints.maxWidth * 0.9; // 90% of the parent width
+                double paddingValue = constraints.maxWidth *
+                    0.05; // 5% of the parent width for padding
+
+                return Container(
+                  margin: const EdgeInsets.fromLTRB(10, 45, 10, 0),
+                  height: 320,
+                  width: containerWidth,
+                  decoration: BoxDecoration(
+                    color: const Color.fromRGBO(55, 51, 88, 1.0),
+                    borderRadius: const BorderRadius.all(Radius.circular(37)),
+                    border: Border.all(
+                        color: const Color.fromRGBO(48, 45, 81, 1.0)),
+                    boxShadow: [
+                      BoxShadow(
+                        color: const Color.fromARGB(255, 31, 31, 31)
+                            .withOpacity(0.5),
+                        spreadRadius: 1,
+                        blurRadius: 2,
+                        offset:
+                            const Offset(4, 5), // Changes position of shadow
+                      ),
+                    ],
                   ),
-                ],
-              ),
-// EMAIL INPUT
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 15),
-                    child: TextField(
-                      decoration: InputDecoration(
-                          contentPadding: EdgeInsets.fromLTRB(30, 30, 0, 30),
-                          labelText: 'Email',
-                          labelStyle: TextStyle(
-                              color: Color.fromRGBO(123, 120, 145, 1.0)),
-                          border: OutlineInputBorder(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: paddingValue),
+                        child: const TextField(
+                          decoration: InputDecoration(
+                            contentPadding: EdgeInsets.fromLTRB(30, 25, 0, 25),
+                            labelText: 'Email',
+                            labelStyle: TextStyle(
+                              color: Color.fromRGBO(123, 120, 145, 1.0),
+                              fontFamily: 'RobotoMono',
+                              fontWeight: FontWeight.w800,
+                            ),
+                            border: OutlineInputBorder(
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(21))),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                                  BorderRadius.all(Radius.circular(21)),
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
                                 width: 1.5,
-                                color: Color.fromRGBO(236, 191, 140,
-                                    1.0)), // Default border color
-                            borderRadius: BorderRadius.all(Radius.circular(21)),
-                          )),
-                    ),
-                  ),
-                  SizedBox(
-                    // CUSTOM MARGIN
-                    height: 33,
-                  ),
-// PASSWORD INPUT
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 15),
-                    child: TextField(
-                      decoration: InputDecoration(
-                          contentPadding: EdgeInsets.fromLTRB(30, 30, 0, 30),
-                          labelText: 'Password',
-                          labelStyle: TextStyle(
-                              color: Color.fromRGBO(123, 120, 145, 1.0)),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(21)),
+                                color: Color.fromRGBO(
+                                    236, 191, 140, 1.0), // Default border color
+                              ),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(21)),
+                            ),
                           ),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Color.fromRGBO(236, 191, 140, 1.0),
+                            fontFamily: 'RobotoMono',
+                            fontWeight: FontWeight.w800, // Default border color
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 33, // Custom margin
+                      ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: paddingValue),
+                        child: const TextField(
+                          decoration: InputDecoration(
+                            contentPadding: EdgeInsets.fromLTRB(30, 25, 0, 25),
+                            labelText: 'Password',
+                            labelStyle: TextStyle(
+                                color: Color.fromRGBO(123, 120, 145, 1.0),
+                                fontFamily: 'RobotoMono',
+                                fontWeight: FontWeight.w800),
+                            border: OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(21)),
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
                                 width: 1.5,
-                                color: Color.fromRGBO(236, 191, 140,
-                                    1.0)), // Default border color
-                            borderRadius: BorderRadius.all(Radius.circular(21)),
-                          )),
-                    ),
-                  )
-                ],
-              ),
+                                color: Color.fromRGBO(
+                                    236, 191, 140, 1.0), // Default border color
+                              ),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(21)),
+                            ),
+                          ),
+                          style: TextStyle(
+                              fontSize: 20,
+                              color: Color.fromRGBO(236, 191, 140, 1.0),
+                              fontFamily: 'RobotoMono',
+                              fontWeight:
+                                  FontWeight.w800 // Default border color
+                              ),
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              },
             ),
+
             const SizedBox(
               // CUSTOM MARGIN
               height: 33,
@@ -138,7 +173,12 @@ class _LoginPageState extends State<LoginPage> {
                     ],
                   ),
                   child: TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (_) => const LandingPage()));
+                    },
                     child: const Text(
                       'Login',
                       style: TextStyle(
@@ -149,9 +189,10 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                 ),
+// Button Margin
                 const SizedBox(
                   // CUSTOM MARGIN
-                  height: 33,
+                  height: 25,
                 ),
                 Container(
                   height: 60,
