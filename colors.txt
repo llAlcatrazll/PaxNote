@@ -1,0 +1,21 @@
+General Purple
+        Color.fromRGBO(73, 66, 108, 1.0)
+
+Dark Purple
+        Color.fromRGBO(55, 51, 88, 1.0),
+
+Outline Purple
+        Color.fromRGBO(48, 45, 81, 1.0),
+
+Peach Yello
+        Color.fromRGBO(236, 191, 140, 1.0),
+
+
+MongoDB
+
+username :alexismagaway911
+
+password:  J42ysC8daqXAUrQt
+
+
+mongodb+srv://alexismagaway911:J42ysC8daqXAUrQt@paxnotedb.8fcdnct.mongodb.net/?retryWrites=true&w=majority&appName=PaxNoteDB
