@@ -15,7 +15,8 @@ MongoDB
 
 username :alexismagaway911
 
-password:  J42ysC8daqXAUrQt
+password:  SeVj5zHSh5Ezj3S
 
 
 mongodb+srv://alexismagaway911:J42ysC8daqXAUrQt@paxnotedb.8fcdnct.mongodb.net/?retryWrites=true&w=majority&appName=PaxNoteDB
+
