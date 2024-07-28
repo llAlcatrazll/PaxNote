@@ -20,3 +20,11 @@ password:  SeVj5zHSh5Ezj3S
 
 mongodb+srv://alexismagaway911:J42ysC8daqXAUrQt@paxnotedb.8fcdnct.mongodb.net/?retryWrites=true&w=majority&appName=PaxNoteDB
 
+45:27 / 1:16:04
+
+•
+Client Side Signing Up
+
+CONTINUE FOR dB
+
+BACK TO DESIGNING
