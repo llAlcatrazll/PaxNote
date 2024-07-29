@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:paxnote/services/auth_services.dart';
 
 class CreateaccountPage extends StatefulWidget {
   const CreateaccountPage({super.key});
@@ -8,6 +9,20 @@ class CreateaccountPage extends StatefulWidget {
 }
 
 class _CreateaccountPageState extends State<CreateaccountPage> {
+  //
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController nameController = TextEditingController();
+  final AuthService authService = AuthService();
+
+  void signupUser() {
+    authService.signUpUser(
+        context: context,
+        email: emailController.text,
+        password: passwordController.text,
+        name: nameController.text);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,9 +73,10 @@ class _CreateaccountPageState extends State<CreateaccountPage> {
                     children: [
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: paddingValue),
-                        child: const TextField(
+                        child: TextField(
 // NAME TEXT FIELD
-                          decoration: InputDecoration(
+                          controller: nameController,
+                          decoration: const InputDecoration(
                             contentPadding: EdgeInsets.fromLTRB(30, 25, 0, 25),
                             labelText: 'Name',
                             labelStyle: TextStyle(
@@ -82,7 +98,7 @@ class _CreateaccountPageState extends State<CreateaccountPage> {
                                   BorderRadius.all(Radius.circular(21)),
                             ),
                           ),
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 20,
                             color: Color.fromRGBO(236, 191, 140, 1.0),
                             fontFamily: 'RobotoMono',
@@ -95,9 +111,10 @@ class _CreateaccountPageState extends State<CreateaccountPage> {
                       ),
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: paddingValue),
-                        child: const TextField(
+                        child: TextField(
 // EMAIL TEXT FIELD
-                          decoration: InputDecoration(
+                          controller: emailController,
+                          decoration: const InputDecoration(
                             contentPadding: EdgeInsets.fromLTRB(30, 25, 0, 25),
                             labelText: 'Email',
                             labelStyle: TextStyle(
@@ -118,7 +135,7 @@ class _CreateaccountPageState extends State<CreateaccountPage> {
                                   BorderRadius.all(Radius.circular(21)),
                             ),
                           ),
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontSize: 20,
                               color: Color.fromRGBO(236, 191, 140, 1.0),
                               fontFamily: 'RobotoMono',
@@ -132,9 +149,10 @@ class _CreateaccountPageState extends State<CreateaccountPage> {
                       ),
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: paddingValue),
-                        child: const TextField(
+                        child: TextField(
 // PASSWORD TEXTFIELD
-                          decoration: InputDecoration(
+                          controller: passwordController,
+                          decoration: const InputDecoration(
                             contentPadding: EdgeInsets.fromLTRB(30, 25, 0, 25),
                             labelText: 'Password',
                             labelStyle: TextStyle(
@@ -155,7 +173,7 @@ class _CreateaccountPageState extends State<CreateaccountPage> {
                                   BorderRadius.all(Radius.circular(21)),
                             ),
                           ),
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontSize: 20,
                               color: Color.fromRGBO(236, 191, 140, 1.0),
                               fontFamily: 'RobotoMono',
@@ -195,7 +213,7 @@ class _CreateaccountPageState extends State<CreateaccountPage> {
                   ),
                   child: TextButton(
 // CREATE ACCOUNT BUTTON
-                    onPressed: () {},
+                    onPressed: signupUser,
                     child: const Text(
                       'CreateAccount',
                       style: TextStyle(
