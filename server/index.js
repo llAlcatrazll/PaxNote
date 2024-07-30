@@ -8,6 +8,7 @@ const app = express();
 app.use(express.json());
 
 // Set CORS headers manually
+// to allow connection from any ip adress regardless of 0.0.0.0
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:paxnote/createaccount_page.dart';
 import 'package:paxnote/landing_page.dart';
+import 'package:paxnote/services/auth_services.dart';
+
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -10,6 +12,19 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  //
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final AuthService authService = AuthService();
+
+  void loginUser() {
+    authService.signInUser(
+      context: context,
+      email: emailController.text,
+      password: passwordController.text,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,8 +75,10 @@ class _LoginPageState extends State<LoginPage> {
                     children: [
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: paddingValue),
-                        child: const TextField(
-                          decoration: InputDecoration(
+// Email
+                        child: TextField(
+                          controller: emailController,
+                          decoration: const InputDecoration(
                             contentPadding: EdgeInsets.fromLTRB(30, 25, 0, 25),
                             labelText: 'Email',
                             labelStyle: TextStyle(
@@ -83,7 +100,7 @@ class _LoginPageState extends State<LoginPage> {
                                   BorderRadius.all(Radius.circular(21)),
                             ),
                           ),
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 20,
                             color: Color.fromRGBO(236, 191, 140, 1.0),
                             fontFamily: 'RobotoMono',
@@ -96,8 +113,10 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: paddingValue),
-                        child: const TextField(
-                          decoration: InputDecoration(
+                        child: TextField(
+// Password
+                          controller: passwordController,
+                          decoration: const InputDecoration(
                             contentPadding: EdgeInsets.fromLTRB(30, 25, 0, 25),
                             labelText: 'Password',
                             labelStyle: TextStyle(
@@ -118,7 +137,7 @@ class _LoginPageState extends State<LoginPage> {
                                   BorderRadius.all(Radius.circular(21)),
                             ),
                           ),
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontSize: 20,
                               color: Color.fromRGBO(236, 191, 140, 1.0),
                               fontFamily: 'RobotoMono',
@@ -159,6 +178,9 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   child: TextButton(
                     onPressed: () {
+                      // final user = Provider.of<UserProvider>(context).user;
+                      // print('${user.email}hello log in');
+                      loginUser();
                       Navigator.push(
                           context,
                           MaterialPageRoute(
