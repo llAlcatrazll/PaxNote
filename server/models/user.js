@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
-
+// Mongo DB json data format
+// adjust for user parameters
 const userSchema = mongoose.Schema({
   name: {
     required: true,

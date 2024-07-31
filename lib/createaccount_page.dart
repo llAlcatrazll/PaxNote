@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:paxnote/login_page.dart';
 import 'package:paxnote/services/auth_services.dart';
 
 class CreateaccountPage extends StatefulWidget {
@@ -13,6 +14,10 @@ class _CreateaccountPageState extends State<CreateaccountPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController nameController = TextEditingController();
+  final TextEditingController courseController = TextEditingController();
+  final TextEditingController yearController = TextEditingController();
+  final TextEditingController studentIDController = TextEditingController();
+  final TextEditingController collegeController = TextEditingController();
   final AuthService authService = AuthService();
 
   void signupUser() {
@@ -49,6 +54,7 @@ class _CreateaccountPageState extends State<CreateaccountPage> {
                     0.05; // 5% of the parent width for padding
 
                 return Container(
+                  height: 450,
                   margin: const EdgeInsets.fromLTRB(10, 45, 10, 0),
                   padding: const EdgeInsets.only(top: 40, bottom: 40),
                   width: containerWidth,
@@ -68,121 +74,292 @@ class _CreateaccountPageState extends State<CreateaccountPage> {
                       ),
                     ],
                   ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: paddingValue),
-                        child: TextField(
-// NAME TEXT FIELD
-                          controller: nameController,
-                          decoration: const InputDecoration(
-                            contentPadding: EdgeInsets.fromLTRB(30, 25, 0, 25),
-                            labelText: 'Name',
-                            labelStyle: TextStyle(
-                              color: Color.fromRGBO(123, 120, 145, 1.0),
-                              fontFamily: 'RobotoMono',
-                              fontWeight: FontWeight.w800,
-                            ),
-                            border: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(21)),
-                            ),
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                width: 1.5,
-                                color: Color.fromRGBO(
-                                    236, 191, 140, 1.0), // Default border color
-                              ),
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(21)),
-                            ),
-                          ),
-                          style: const TextStyle(
-                            fontSize: 20,
-                            color: Color.fromRGBO(236, 191, 140, 1.0),
-                            fontFamily: 'RobotoMono',
-                            fontWeight: FontWeight.w800, // Default border color
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 33, // Custom margin
-                      ),
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: paddingValue),
-                        child: TextField(
-// EMAIL TEXT FIELD
-                          controller: emailController,
-                          decoration: const InputDecoration(
-                            contentPadding: EdgeInsets.fromLTRB(30, 25, 0, 25),
-                            labelText: 'Email',
-                            labelStyle: TextStyle(
+                  child: SingleChildScrollView(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Padding(
+                          padding:
+                              EdgeInsets.symmetric(horizontal: paddingValue),
+                          child: TextFormField(
+                            // NAME TEXT FIELD
+                            controller: nameController,
+                            // validator: (value) => ,
+                            // onChanged: ,
+                            decoration: const InputDecoration(
+                              contentPadding:
+                                  EdgeInsets.fromLTRB(30, 25, 0, 25),
+                              labelText: 'Name',
+                              labelStyle: TextStyle(
                                 color: Color.fromRGBO(123, 120, 145, 1.0),
                                 fontFamily: 'RobotoMono',
-                                fontWeight: FontWeight.w800),
-                            border: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(21)),
-                            ),
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                width: 1.5,
-                                color: Color.fromRGBO(
-                                    236, 191, 140, 1.0), // Default border color
+                                fontWeight: FontWeight.w800,
                               ),
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(21)),
+                              border: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(21)),
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  width: 1.5,
+                                  color: Color.fromRGBO(236, 191, 140,
+                                      1.0), // Default border color
+                                ),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(21)),
+                              ),
                             ),
-                          ),
-                          style: const TextStyle(
+                            style: const TextStyle(
                               fontSize: 20,
                               color: Color.fromRGBO(236, 191, 140, 1.0),
                               fontFamily: 'RobotoMono',
                               fontWeight:
-                                  FontWeight.w800 // Default border color
-                              ),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 33, // Custom margin
-                      ),
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: paddingValue),
-                        child: TextField(
-// PASSWORD TEXTFIELD
-                          controller: passwordController,
-                          decoration: const InputDecoration(
-                            contentPadding: EdgeInsets.fromLTRB(30, 25, 0, 25),
-                            labelText: 'Password',
-                            labelStyle: TextStyle(
-                                color: Color.fromRGBO(123, 120, 145, 1.0),
-                                fontFamily: 'RobotoMono',
-                                fontWeight: FontWeight.w800),
-                            border: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(21)),
-                            ),
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                width: 1.5,
-                                color: Color.fromRGBO(
-                                    236, 191, 140, 1.0), // Default border color
-                              ),
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(21)),
+                                  FontWeight.w800, // Default border color
                             ),
                           ),
-                          style: const TextStyle(
-                              fontSize: 20,
-                              color: Color.fromRGBO(236, 191, 140, 1.0),
-                              fontFamily: 'RobotoMono',
-                              fontWeight:
-                                  FontWeight.w800 // Default border color
-                              ),
                         ),
-                      ),
-                    ],
+                        const SizedBox(
+                          height: 33, // Custom margin
+                        ),
+                        Padding(
+                          padding:
+                              EdgeInsets.symmetric(horizontal: paddingValue),
+                          child: TextFormField(
+                            // EMAIL TEXT FIELD
+                            controller: emailController,
+                            decoration: const InputDecoration(
+                              contentPadding:
+                                  EdgeInsets.fromLTRB(30, 25, 0, 25),
+                              labelText: 'Email',
+                              labelStyle: TextStyle(
+                                  color: Color.fromRGBO(123, 120, 145, 1.0),
+                                  fontFamily: 'RobotoMono',
+                                  fontWeight: FontWeight.w800),
+                              border: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(21)),
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  width: 1.5,
+                                  color: Color.fromRGBO(236, 191, 140,
+                                      1.0), // Default border color
+                                ),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(21)),
+                              ),
+                            ),
+                            style: const TextStyle(
+                                fontSize: 20,
+                                color: Color.fromRGBO(236, 191, 140, 1.0),
+                                fontFamily: 'RobotoMono',
+                                fontWeight:
+                                    FontWeight.w800 // Default border color
+                                ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 33, // Custom margin
+                        ),
+                        Padding(
+                          padding:
+                              EdgeInsets.symmetric(horizontal: paddingValue),
+                          child: TextFormField(
+                            // PASSWORD TEXTFIELD
+                            controller: passwordController,
+                            decoration: const InputDecoration(
+                              contentPadding:
+                                  EdgeInsets.fromLTRB(30, 25, 0, 25),
+                              labelText: 'Password',
+                              labelStyle: TextStyle(
+                                  color: Color.fromRGBO(123, 120, 145, 1.0),
+                                  fontFamily: 'RobotoMono',
+                                  fontWeight: FontWeight.w800),
+                              border: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(21)),
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  width: 1.5,
+                                  color: Color.fromRGBO(236, 191, 140,
+                                      1.0), // Default border color
+                                ),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(21)),
+                              ),
+                            ),
+                            style: const TextStyle(
+                                fontSize: 20,
+                                color: Color.fromRGBO(236, 191, 140, 1.0),
+                                fontFamily: 'RobotoMono',
+                                fontWeight:
+                                    FontWeight.w800 // Default border color
+                                ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 33, // Custom margin
+                        ),
+                        Padding(
+                          padding:
+                              EdgeInsets.symmetric(horizontal: paddingValue),
+                          child: TextFormField(
+                            // PASSWORD TEXTFIELD
+                            controller: passwordController,
+                            decoration: const InputDecoration(
+                              contentPadding:
+                                  EdgeInsets.fromLTRB(30, 25, 0, 25),
+                              labelText: 'Course',
+                              labelStyle: TextStyle(
+                                  color: Color.fromRGBO(123, 120, 145, 1.0),
+                                  fontFamily: 'RobotoMono',
+                                  fontWeight: FontWeight.w800),
+                              border: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(21)),
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  width: 1.5,
+                                  color: Color.fromRGBO(236, 191, 140,
+                                      1.0), // Default border color
+                                ),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(21)),
+                              ),
+                            ),
+                            style: const TextStyle(
+                                fontSize: 20,
+                                color: Color.fromRGBO(236, 191, 140, 1.0),
+                                fontFamily: 'RobotoMono',
+                                fontWeight:
+                                    FontWeight.w800 // Default border color
+                                ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 33, // Custom margin
+                        ),
+                        Padding(
+                          padding:
+                              EdgeInsets.symmetric(horizontal: paddingValue),
+                          child: TextFormField(
+                            // PASSWORD TEXTFIELD
+                            controller: passwordController,
+                            decoration: const InputDecoration(
+                              contentPadding:
+                                  EdgeInsets.fromLTRB(30, 25, 0, 25),
+                              labelText: 'Year',
+                              labelStyle: TextStyle(
+                                  color: Color.fromRGBO(123, 120, 145, 1.0),
+                                  fontFamily: 'RobotoMono',
+                                  fontWeight: FontWeight.w800),
+                              border: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(21)),
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  width: 1.5,
+                                  color: Color.fromRGBO(236, 191, 140,
+                                      1.0), // Default border color
+                                ),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(21)),
+                              ),
+                            ),
+                            style: const TextStyle(
+                                fontSize: 20,
+                                color: Color.fromRGBO(236, 191, 140, 1.0),
+                                fontFamily: 'RobotoMono',
+                                fontWeight:
+                                    FontWeight.w800 // Default border color
+                                ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 33, // Custom margin
+                        ),
+                        Padding(
+                          padding:
+                              EdgeInsets.symmetric(horizontal: paddingValue),
+                          child: TextFormField(
+                            // PASSWORD TEXTFIELD
+                            controller: passwordController,
+                            decoration: const InputDecoration(
+                              contentPadding:
+                                  EdgeInsets.fromLTRB(30, 25, 0, 25),
+                              labelText: 'Student ID',
+                              labelStyle: TextStyle(
+                                  color: Color.fromRGBO(123, 120, 145, 1.0),
+                                  fontFamily: 'RobotoMono',
+                                  fontWeight: FontWeight.w800),
+                              border: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(21)),
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  width: 1.5,
+                                  color: Color.fromRGBO(236, 191, 140,
+                                      1.0), // Default border color
+                                ),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(21)),
+                              ),
+                            ),
+                            style: const TextStyle(
+                                fontSize: 20,
+                                color: Color.fromRGBO(236, 191, 140, 1.0),
+                                fontFamily: 'RobotoMono',
+                                fontWeight:
+                                    FontWeight.w800 // Default border color
+                                ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 33, // Custom margin
+                        ),
+                        Padding(
+                          padding:
+                              EdgeInsets.symmetric(horizontal: paddingValue),
+                          child: TextFormField(
+                            // PASSWORD TEXTFIELD
+                            controller: passwordController,
+                            decoration: const InputDecoration(
+                              contentPadding:
+                                  EdgeInsets.fromLTRB(30, 25, 0, 25),
+                              labelText: 'College',
+                              labelStyle: TextStyle(
+                                  color: Color.fromRGBO(123, 120, 145, 1.0),
+                                  fontFamily: 'RobotoMono',
+                                  fontWeight: FontWeight.w800),
+                              border: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(21)),
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  width: 1.5,
+                                  color: Color.fromRGBO(236, 191, 140,
+                                      1.0), // Default border color
+                                ),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(21)),
+                              ),
+                            ),
+                            style: const TextStyle(
+                                fontSize: 20,
+                                color: Color.fromRGBO(236, 191, 140, 1.0),
+                                fontFamily: 'RobotoMono',
+                                fontWeight:
+                                    FontWeight.w800 // Default border color
+                                ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 );
               },
@@ -253,7 +430,10 @@ class _CreateaccountPageState extends State<CreateaccountPage> {
                   ),
                   child: TextButton(
 // CREATE ACCOUNT BUTTON
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (_) => const LoginPage()));
+                    },
                     child: const Text(
                       'Back',
                       style: TextStyle(

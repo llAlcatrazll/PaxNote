@@ -4,7 +4,6 @@ import 'package:paxnote/providers/user_provider.dart';
 import 'package:paxnote/services/auth_services.dart';
 import 'package:provider/provider.dart';
 import 'package:paxnote/landing_page.dart';
-import 'package:paxnote/createaccount_page.dart';
 
 void main() {
   runApp(

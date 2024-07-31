@@ -6,7 +6,7 @@ const auth = async (req, rext, next) => {
     if (!token)
       return res.status(401).json({ msg: "No auth token, Access denied" });
 
-    const verified = jtw.verify(token, "passwordKey");
+    const verified = jwt.verify(token, "passwordKey");
     // if the token is verified
     if (!verified)
       return res

@@ -28,3 +28,14 @@ Client Side Signing Up
 CONTINUE FOR dB
 
 BACK TO DESIGNING
+
+
+
+Name
+Email
+Password
+
+Course
+Year
+Student ID
+College

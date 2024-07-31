@@ -3,7 +3,6 @@ import 'package:paxnote/createaccount_page.dart';
 import 'package:paxnote/landing_page.dart';
 import 'package:paxnote/services/auth_services.dart';
 
-
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
@@ -178,13 +177,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   child: TextButton(
                     onPressed: () {
-                      // final user = Provider.of<UserProvider>(context).user;
-                      // print('${user.email}hello log in');
                       loginUser();
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (_) => const LandingPage()));
                     },
                     child: const Text(
                       'Login',
