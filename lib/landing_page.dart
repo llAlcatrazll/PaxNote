@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:paxnote/subpages/create_event.dart';
 import 'package:paxnote/subpages/events_page.dart';
 import 'package:paxnote/subpages/profile.dart';
 import 'package:paxnote/subpages/qr_core.dart';
@@ -11,9 +12,10 @@ class LandingPage extends StatefulWidget {
 }
 
 class _LandingPageState extends State<LandingPage> {
-  int _currentIndex = 0;
+  int _currentIndex = 2;
   final tabs = [
     const EventsPage(),
+    const CreateEvent(),
     const QrPage(),
     const ProfilePage(),
   ];
@@ -48,7 +50,7 @@ class _LandingPageState extends State<LandingPage> {
                     },
                   ),
                   IconButton(
-                    icon: const Icon(Icons.qr_code,
+                    icon: const Icon(Icons.event,
                         color: Color.fromRGBO(236, 191, 140, 1.0), size: 35),
                     onPressed: () {
                       setState(() {
@@ -57,11 +59,20 @@ class _LandingPageState extends State<LandingPage> {
                     },
                   ),
                   IconButton(
-                    icon: const Icon(Icons.person,
+                    icon: const Icon(Icons.qr_code,
                         color: Color.fromRGBO(236, 191, 140, 1.0), size: 35),
                     onPressed: () {
                       setState(() {
                         _currentIndex = 2;
+                      });
+                    },
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.person,
+                        color: Color.fromRGBO(236, 191, 140, 1.0), size: 35),
+                    onPressed: () {
+                      setState(() {
+                        _currentIndex = 3;
                       });
                     },
                   ),

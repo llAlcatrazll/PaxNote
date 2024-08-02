@@ -22,10 +22,15 @@ class _CreateaccountPageState extends State<CreateaccountPage> {
 
   void signupUser() {
     authService.signUpUser(
-        context: context,
-        email: emailController.text,
-        password: passwordController.text,
-        name: nameController.text);
+      context: context,
+      email: emailController.text,
+      password: passwordController.text,
+      name: nameController.text,
+      course: courseController.text,
+      year: yearController.text,
+      studentid: studentIDController.text,
+      college: collegeController.text,
+    );
   }
 
   @override
@@ -206,7 +211,7 @@ class _CreateaccountPageState extends State<CreateaccountPage> {
                               EdgeInsets.symmetric(horizontal: paddingValue),
                           child: TextFormField(
                             // PASSWORD TEXTFIELD
-                            controller: passwordController,
+                            controller: courseController,
                             decoration: const InputDecoration(
                               contentPadding:
                                   EdgeInsets.fromLTRB(30, 25, 0, 25),
@@ -246,7 +251,7 @@ class _CreateaccountPageState extends State<CreateaccountPage> {
                               EdgeInsets.symmetric(horizontal: paddingValue),
                           child: TextFormField(
                             // PASSWORD TEXTFIELD
-                            controller: passwordController,
+                            controller: yearController,
                             decoration: const InputDecoration(
                               contentPadding:
                                   EdgeInsets.fromLTRB(30, 25, 0, 25),
@@ -286,7 +291,7 @@ class _CreateaccountPageState extends State<CreateaccountPage> {
                               EdgeInsets.symmetric(horizontal: paddingValue),
                           child: TextFormField(
                             // PASSWORD TEXTFIELD
-                            controller: passwordController,
+                            controller: studentIDController,
                             decoration: const InputDecoration(
                               contentPadding:
                                   EdgeInsets.fromLTRB(30, 25, 0, 25),
@@ -326,7 +331,7 @@ class _CreateaccountPageState extends State<CreateaccountPage> {
                               EdgeInsets.symmetric(horizontal: paddingValue),
                           child: TextFormField(
                             // PASSWORD TEXTFIELD
-                            controller: passwordController,
+                            controller: collegeController,
                             decoration: const InputDecoration(
                               contentPadding:
                                   EdgeInsets.fromLTRB(30, 25, 0, 25),

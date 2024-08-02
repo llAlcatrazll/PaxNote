@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:paxnote/landing_page.dart';
@@ -10,7 +9,6 @@ import 'package:paxnote/utils/constants.dart';
 import 'package:paxnote/utils/utils.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-// import 'package:paxnote/util/utils.dart';
 
 class AuthService {
   void signUpUser({
@@ -18,12 +16,20 @@ class AuthService {
     required String email,
     required String password,
     required String name,
+    required String course,
+    required String year,
+    required String studentid,
+    required String college,
   }) async {
     try {
       User user = User(
         id: '',
         name: name,
         password: password,
+        course: course,
+        year: year,
+        studentid: studentid,
+        college: college,
         email: email,
         token: '',
       );
@@ -69,9 +75,7 @@ class AuthService {
         context: context,
         onSuccess: () async {
           SharedPreferences prefs = await SharedPreferences.getInstance();
-          // print("Response body: ${res.body}");
           userProvider.setUser(res.body);
-          // print("User set in provider: ${userProvider.user.email}");
           await prefs.setString('x-auth-token', jsonDecode(res.body)['token']);
           navigator.pushAndRemoveUntil(
             MaterialPageRoute(
@@ -86,7 +90,7 @@ class AuthService {
     }
   }
 
-  //get the user's data
+  // Get the user's data
   void getUserData(
     BuildContext context,
   ) async {
@@ -126,7 +130,6 @@ class AuthService {
   }
 
   void signOut(BuildContext context) async {
-    // convert the token to nothing to invalidate the user's log in
     final navigator = Navigator.of(context);
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setString('x-auth-token', '');
@@ -137,5 +140,4 @@ class AuthService {
       (route) => false,
     );
   }
-  // last catch
 }

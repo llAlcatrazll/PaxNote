@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:paxnote/createaccount_page.dart';
-import 'package:paxnote/landing_page.dart';
 import 'package:paxnote/services/auth_services.dart';
 
 class LoginPage extends StatefulWidget {

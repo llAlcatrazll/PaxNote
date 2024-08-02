@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:paxnote/microcomponents/upcomingevent_material.dart';
 
 class UpcomingEvent extends StatelessWidget {
   const UpcomingEvent({super.key});
@@ -9,10 +10,9 @@ class UpcomingEvent extends StatelessWidget {
       widthFactor: 1,
       child: Container(
         height: 460,
-        decoration: const BoxDecoration(
-          color: Color.fromRGBO(55, 51, 88, 1.0),
-        ),
-        child: const Text('upcomingEvent'),
+        padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+        margin: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+        child: const UpcomingeventMaterial(),
       ),
     );
   }
